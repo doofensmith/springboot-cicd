@@ -1,9 +1,6 @@
 #import base JDK from Linux
 FROM adoptopenjdk/openjdk11:alpine
 
-# working directory
-WORKDIR /app
-
 # copy application file
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
