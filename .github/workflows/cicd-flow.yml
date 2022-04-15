@@ -80,6 +80,8 @@ jobs:
     runs-on: ubuntu-latest
     # job steps
     steps:
+      # checkout repo under $github_workspace, accesible by workflow
+      - uses: actions/checkout@v3
       # Use SSH
       - name: Configure deploy with ssh
         uses: appleboy/ssh-action@master
@@ -93,5 +95,5 @@ jobs:
             docker rm springboot-cicd
             docker rmi doofensmith/springboot-cicd:latest
             docker pull doofensmith/springboot-cicd:latest
-            docker run -d --name springboot-cicd -p 80:8080 doofensmith/springboot-cicd:latest
+            docker run -d --name springboot-cicd -p 443:8080 -p 80:8080 doofensmith/springboot-cicd:latest
 
