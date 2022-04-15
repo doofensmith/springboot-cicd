@@ -95,5 +95,5 @@ jobs:
             docker rm springboot-cicd
             docker rmi doofensmith/springboot-cicd:latest
             docker pull doofensmith/springboot-cicd:latest
-            docker run -d --name springboot-cicd -p 443:8080 -p 80:8080 doofensmith/springboot-cicd:latest
+            docker run -d --name springboot-cicd -p 443:8080 -p 80:8080 --env-file postgres.env --network network1 doofensmith/springboot-cicd:latest
 
