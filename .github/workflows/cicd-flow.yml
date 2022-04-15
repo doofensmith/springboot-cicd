@@ -82,7 +82,7 @@ jobs:
     steps:
       # checkout repo under $github_workspace, accesible by workflow
       - uses: actions/checkout@v3
-      # Use SSH
+      # Use SSH to Deploy
       - name: Configure deploy with ssh
         uses: appleboy/ssh-action@master
         with:
@@ -90,6 +90,9 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
+          #copy env file
+          source: './postgres.env'
+          target: '/home/ec2-user'
           script: |
             docker stop springboot-cicd
             docker rm springboot-cicd
