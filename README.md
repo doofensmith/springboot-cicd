@@ -1,8 +1,14 @@
-# springboot-cicd
-Springboot Project
+# Springboot Project
+### On this project:
+- Simple CRUD on 1 Entity
+- H2 Database for Testing
+- Postgre Database for Deployment
+- Unit Testing
+- Integration Testing
+- CI/CD Implementation using GitHub Action
 
 
-###Usefull-command:
+### Usefull-command:
 #### langkah nyambungin ke postgre
 ```docker pull postgres```
 
@@ -10,21 +16,21 @@ Springboot Project
 
 ```docker ps -a```
 
-Buat env postgres di server
+Buat env postgres di server  
 ```nano postgres.env```
 
-Buat network
+Buat network  
 ```docker network create network_name```
 contoh: ```docker network create network1```
 
 ```docker network ls```
 
-
+Connect postgres ke network  
 ```docker network connect network1 container_id_postgres```
 Contoh : ```docker network connect network1 65290a9878b7```
 
-Cek container, seharusnya ada postgres
+Cek container, seharusnya ada postgres  
 ```docker network inspect network1```
 
-CICD flow ubah script run
+CI/CD flow ubah script run  
 ```docker run -d --name springboot-cicd -p 443:8080 -p 80:8080 --env-file postgres.env --network network1 doofensmith/springboot-cicd:latest```

@@ -17,7 +17,7 @@ import javax.persistence.*;
 @SuperBuilder
 @Entity
 @Table(name = "product")
-@SQLDelete(sql = "UPDATE product set is_deleted = true WHERE id = ?")
+@SQLDelete(sql = "UPDATE product SET is_deleted = TRUE, deleted_at = CURRENT_TIMESTAMP WHERE id = ?")
 @Where(clause = "is_deleted = false")
 public class ProductDao extends BaseDao{
 
