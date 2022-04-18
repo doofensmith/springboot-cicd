@@ -1,6 +1,7 @@
 # Springboot Project
 ### On this project:
 - Simple CRUD on 1 Entity
+- Soft delete implementation
 - H2 Database for Testing
 - Postgre Database for Deployment
 - Unit Testing
